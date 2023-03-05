@@ -20,29 +20,26 @@ public class CurrencyConvertorProgram extends JFrame implements ActionListener {
     public CurrencyConvertorProgram() {
         // title
         super("Currency Convertor V1.0");
+        this.setLayout(new GridLayout(3, 2, 5, 5));
 
         // local variables
         JLabel inputLabel = new JLabel("enter the money:");
-        JPanel panel = new JPanel(new GridLayout(3, 2, 5, 5));
         JLabel resultLabel = new JLabel("result:");
 
         // init
         convertButton.setFocusable(false);
         resultTextField.setEditable(false);
 
-        // adding components to the panel
-        panel.add(inputLabel);
-        panel.add(inputTextField);
-        panel.add(resultLabel);
-        panel.add(resultTextField);
-        panel.add(comboBox);
-        panel.add(convertButton);
-
         // adding ActionListeners to the components
         convertButton.addActionListener(this);
 
         // adding components to the frame
-        this.add(panel);
+        this.add(inputLabel);
+        this.add(inputTextField);
+        this.add(resultLabel);
+        this.add(resultTextField);
+        this.add(comboBox);
+        this.add(convertButton);
 
         // setup
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
