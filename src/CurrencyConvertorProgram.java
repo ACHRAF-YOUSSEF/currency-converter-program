@@ -75,7 +75,7 @@ public class CurrencyConvertorProgram extends JFrame implements ActionListener {
                         input *= 0.098;
                     }
                     case "dinarKoweitien->dinarTunisien" -> {
-                        input /= 0.098;
+                        input /= 10.21;
                     }
                 }
 
@@ -83,9 +83,9 @@ public class CurrencyConvertorProgram extends JFrame implements ActionListener {
                 inputTextField.setText("");
             } catch (NumberFormatException ne) {
                 JOptionPane.showMessageDialog(this,
-                        "error\n" + ne.getMessage(),
-                        "error",
-                        JOptionPane.ERROR_MESSAGE);
+                    "error\n" + ne.getMessage(),
+                    "error",
+                    JOptionPane.ERROR_MESSAGE);
             }
         }
     }
