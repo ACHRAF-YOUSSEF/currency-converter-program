@@ -6,7 +6,15 @@ public class Convertor {
         this.c2 = c2;
     }
 
-    public Currency convert() {
-        return  new Currency(0.0, "");
+    public Currency convertC1ToC2() {
+        double res = c1.getRatio() / c2.getRatio();
+
+        return  new Currency(res, c2.getUnits());
+    }
+
+    public Currency convertC2ToC1() {
+        double res = c1.getRatio() * c2.getRatio();
+
+        return  new Currency(res, c1.getUnits());
     }
 }
