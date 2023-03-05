@@ -6,8 +6,6 @@ import java.awt.event.ActionListener;
 public class CurrencyConvertorProgram extends JFrame implements ActionListener {
     // components
     private final JButton convertButton= new JButton("convert");
-    private final JLabel inputLabel = new JLabel("enter the money:");
-    private final JLabel resultLabel = new JLabel("result:");
     private final JTextField inputTextField = new JTextField();
     private final JTextField resultTextField = new JTextField();
     private final JComboBox<CurrencyConvertorClass>  comboBox = new JComboBox<>(new CurrencyConvertorClass[] {
@@ -18,11 +16,15 @@ public class CurrencyConvertorProgram extends JFrame implements ActionListener {
             new CurrencyConvertorClass("dinarTunisien->dollarAméricain", 0.32),
             new CurrencyConvertorClass("dollarAméricain->dinarTunisien", 3.13)
     });
-    private final JPanel panel = new JPanel(new GridLayout(3, 2, 5, 5));
 
     public CurrencyConvertorProgram() {
         // title
         super("Currency Convertor V1.0");
+
+        // local variables
+        JLabel inputLabel = new JLabel("enter the money:");
+        JPanel panel = new JPanel(new GridLayout(3, 2, 5, 5));
+        JLabel resultLabel = new JLabel("result:");
 
         // init
         convertButton.setFocusable(false);
@@ -56,21 +58,24 @@ public class CurrencyConvertorProgram extends JFrame implements ActionListener {
             resultTextField.setText("");
 
             CurrencyConvertorClass selectedItem = (CurrencyConvertorClass) comboBox.getSelectedItem();
-            String[] units = selectedItem.getFromTo().split("->");
-            String c2 = units[1];
 
-            try {
-                double input = Double.parseDouble(inputTextField.getText());
+            if (selectedItem != null) {
+                String[] units = selectedItem.getFromTo().split("->");
+                String c2 = units[1];
 
-                input = selectedItem.convertFromTo(input);
+                try {
+                    double input = Double.parseDouble(inputTextField.getText());
 
-                resultTextField.setText(String.format("%.3f %s", input, c2));
-                inputTextField.setText("");
-            } catch (NumberFormatException ne) {
-                JOptionPane.showMessageDialog(this,
-                    "error\n" + ne.getMessage(),
-                    "error",
-                    JOptionPane.ERROR_MESSAGE);
+                    input = selectedItem.convertFromTo(input);
+
+                    resultTextField.setText(String.format("%.3f %s", input, c2));
+                    inputTextField.setText("");
+                } catch (NumberFormatException ne) {
+                    JOptionPane.showMessageDialog(this,
+                            "error\n" + ne.getMessage(),
+                            "error",
+                            JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
     }
