@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 public class CurrencyConvertorProgram extends JFrame implements ActionListener {
     // components
-    // JButtons
     private final JButton convertButton= new JButton("convert");
     private final JLabel inputLabel = new JLabel("enter the money:");
     private final JLabel resultLabel = new JLabel("result:");
@@ -15,9 +14,10 @@ public class CurrencyConvertorProgram extends JFrame implements ActionListener {
             new CurrencyConvertorClass("dinarTunisien->euro", 0.3),
             new CurrencyConvertorClass("euro->dinarTunisien", 3),
             new CurrencyConvertorClass("dinarTunisien->dinarKoweitien", 0.098),
-            new CurrencyConvertorClass("dinarKoweitien->dinarTunisien", 10.21)
+            new CurrencyConvertorClass("dinarKoweitien->dinarTunisien", 10.21),
+            new CurrencyConvertorClass("dinarTunisien->dollarAméricain", 0.32),
+            new CurrencyConvertorClass("dollarAméricain->dinarTunisien", 3.13)
     });
-
     private final JPanel panel = new JPanel(new GridLayout(3, 2, 5, 5));
 
     public CurrencyConvertorProgram() {
