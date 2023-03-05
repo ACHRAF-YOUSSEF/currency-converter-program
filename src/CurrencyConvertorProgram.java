@@ -12,11 +12,11 @@ public class CurrencyConvertorProgram extends JFrame implements ActionListener {
     private final JLabel resultLabel = new JLabel("result:");
     private final JTextField inputTextField = new JTextField();
     private final JTextField resultTextField = new JTextField();
-    private final JComboBox<String>  comboBox = new JComboBox<>(new String[] {
-            "dinarTunisien->euro",
-            "euro->dinarTunisien",
-            "dinarTunisien->dinarKoweitien",
-            "dinarKoweitien->dinarTunisien"
+    private final JComboBox<CurrencyConvertorClass>  comboBox = new JComboBox<>(new CurrencyConvertorClass[] {
+            new CurrencyConvertorClass("dinarTunisien->euro", 0.3),
+            new CurrencyConvertorClass("euro->dinarTunisien", 3),
+            new CurrencyConvertorClass("dinarTunisien->dinarKoweitien", 0.098),
+            new CurrencyConvertorClass("dinarKoweitien->dinarTunisien", 10.21)
     });
     private final JPanel panel = new JPanel(new GridLayout(3, 2, 5, 5));
 
@@ -55,29 +55,14 @@ public class CurrencyConvertorProgram extends JFrame implements ActionListener {
         if (e.getSource() == convertButton) {
             resultTextField.setText("");
 
-            String selectedItem = (String) comboBox.getSelectedItem();
-            String[] units = selectedItem.split("->");
-
-            String c1 = units[0];
+            CurrencyConvertorClass selectedItem = (CurrencyConvertorClass) comboBox.getSelectedItem();
+            String[] units = selectedItem.getFromTo().split("->");
             String c2 = units[1];
 
             try {
                 double input = Double.parseDouble(inputTextField.getText());
 
-                switch (selectedItem) {
-                    case "dinarTunisien->euro" -> {
-                        input *= 0.3;
-                    }
-                    case "euro->dinarTunisien" -> {
-                        input /= 0.3;
-                    }
-                    case "dinarTunisien->dinarKoweitien" -> {
-                        input *= 0.098;
-                    }
-                    case "dinarKoweitien->dinarTunisien" -> {
-                        input /= 0.098;
-                    }
-                }
+                input = selectedItem.ConvertFromTo(input);
 
                 resultTextField.setText(String.format("%.3f %s", input, c2));
                 inputTextField.setText("");
