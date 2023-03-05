@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,6 +11,7 @@ public class CurrencyConvertorProgram extends JFrame implements ActionListener {
     private final JLabel resultLabel = new JLabel("enter the money");
     private final JTextField inputTextField = new JTextField();
     private final JTextField resultTextField = new JTextField();
+    private final JPanel panel = new JPanel(new GridLayout(3, 3, 5, 5));
 
     public CurrencyConvertorProgram() {
         // title
@@ -20,6 +22,7 @@ public class CurrencyConvertorProgram extends JFrame implements ActionListener {
         resultTextField.setEditable(false);
 
         // adding components to the frame
+        this.add(panel);
 
         // setup
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
