@@ -1,1 +1,1 @@
-# Currency-convertor-program
+# Currency-converter-program
