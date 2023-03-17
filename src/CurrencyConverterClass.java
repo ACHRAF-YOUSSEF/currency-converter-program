@@ -1,8 +1,8 @@
-public class CurrencyConvertorClass {
+public class CurrencyConverterClass {
     private final String fromTo;
     private final double ratio;
 
-    CurrencyConvertorClass(String fromTo, double ratio) {
+    CurrencyConverterClass(String fromTo, double ratio) {
         this.fromTo = fromTo;
         this.ratio = ratio;
     }

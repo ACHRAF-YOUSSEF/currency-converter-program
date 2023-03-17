@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CurrencyConvertorProgram extends JFrame implements ActionListener {
+public class CurrencyConverterProgram extends JFrame implements ActionListener {
     // components
     private final JButton convertButton= new JButton("convert");
     private final JTextField inputTextField = new JTextField();
@@ -17,7 +17,7 @@ public class CurrencyConvertorProgram extends JFrame implements ActionListener {
             new CurrencyConvertorClass("dollarAméricain->dinarTunisien", 3.13)
     });
 
-    public CurrencyConvertorProgram() {
+    public CurrencyConverterProgram() {
         // title
         super("Currency Convertor V1.0");
         this.setLayout(new GridLayout(3, 2, 5, 5));
