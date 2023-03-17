@@ -8,13 +8,13 @@ public class CurrencyConverterProgram extends JFrame implements ActionListener {
     private final JButton convertButton= new JButton("convert");
     private final JTextField inputTextField = new JTextField();
     private final JTextField resultTextField = new JTextField();
-    private final JComboBox<CurrencyConvertorClass>  comboBox = new JComboBox<>(new CurrencyConvertorClass[] {
-            new CurrencyConvertorClass("dinarTunisien->euro", 0.3),
-            new CurrencyConvertorClass("euro->dinarTunisien", 3),
-            new CurrencyConvertorClass("dinarTunisien->dinarKoweitien", 0.098),
-            new CurrencyConvertorClass("dinarKoweitien->dinarTunisien", 10.21),
-            new CurrencyConvertorClass("dinarTunisien->dollarAméricain", 0.32),
-            new CurrencyConvertorClass("dollarAméricain->dinarTunisien", 3.13)
+    private final JComboBox<CurrencyConverterClass>  comboBox = new JComboBox<>(new CurrencyConverterClass[] {
+            new CurrencyConverterClass("dinarTunisien->euro", 0.3),
+            new CurrencyConverterClass("euro->dinarTunisien", 3),
+            new CurrencyConverterClass("dinarTunisien->dinarKoweitien", 0.098),
+            new CurrencyConverterClass("dinarKoweitien->dinarTunisien", 10.21),
+            new CurrencyConverterClass("dinarTunisien->dollarAméricain", 0.32),
+            new CurrencyConverterClass("dollarAméricain->dinarTunisien", 3.13)
     });
 
     public CurrencyConverterProgram() {
@@ -54,7 +54,7 @@ public class CurrencyConverterProgram extends JFrame implements ActionListener {
         if (e.getSource() == convertButton) {
             resultTextField.setText("");
 
-            CurrencyConvertorClass selectedItem = (CurrencyConvertorClass) comboBox.getSelectedItem();
+            CurrencyConverterClass selectedItem = (CurrencyConverterClass) comboBox.getSelectedItem();
 
             if (selectedItem != null) {
                 String[] units = selectedItem.getFromTo().split("->");
